@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --bg-dark: #020617;
+  --glass-bg: rgba(15, 23, 42, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --accent-primary: #a855f7;
+  --accent-secondary: #3b82f6;
+  --accent-glow: rgba(168, 85, 247, 0.4);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --sidebar-width: 280px;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Animated Mesh Gradient Background */
+.mesh-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: 
+    radial-gradient(at 0% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(34, 197, 94, 0.05) 0px, transparent 50%);
+  filter: blur(80px);
+  animation: mesh-float 20s ease-in-out infinite alternate;
+}
+
+@keyframes mesh-float {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.1) translate(20px, -20px); }
+}
+
+/* Premium Glassmorphism */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(30, 41, 59, 0.75);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
+}
+
+/* Dashboard is now self-contained — no global sidebar offset needed */
+
+/* Inputs & Buttons */
+.cyber-input {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s;
+}
+
+.cyber-input:focus {
+  border-color: var(--accent-primary);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 15px var(--accent-glow);
+  outline: none;
+}
+
+.cyber-btn {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: none;
+  color: white;
+}
+
+.cyber-btn:hover {
+  transform: scale(1.02);
+  filter: brightness(1.1);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* Glow Effects */
+.glow-text-purple {
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
+.glow-border-blue {
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
